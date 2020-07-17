@@ -1,0 +1,22 @@
+[
+    { 
+        "name": "swedish meatballs",
+        "type": "dinner",
+        "ingredients": ["1", "2", "3", "4", "love" ]
+},
+
+    {
+        "name": "steak and potatoes",
+        "type": "dinner",
+        "ingredients": ["A", "B", "C", "D", "4" ]
+
+},
+
+    {  
+        "name": "curry chicken",
+        "type": "lunch",
+        "ingredients": ["chicken", "curry", "love"]
+
+}
+
+]
