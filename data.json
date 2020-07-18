@@ -1,21 +1,25 @@
 [
     { 
-        "name": "swedish meatballs",
+        "name": "Swedish Meatballs",
         "type": "dinner",
-        "ingredients": ["1", "2", "3", "4", "love" ]
-},
+        "ingredients": ["1", "2", "3", "4", "love" ],
+        "picture": "https://www.thecookierookie.com/wp-content/uploads/2017/08/swedish-meatballs-1-of-11-500x500.jpg",
+        "description" : "Swedish meatballs made with ground beef and pork are gently spiced, baked, and served with brown sour cream gravy in this old family favorite. "
+    },
 
     {
-        "name": "steak and potatoes",
+        "name": "Steak and Potatoes",
         "type": "dinner",
-        "ingredients": ["A", "B", "C", "D", "4" ]
+        "ingredients": ["A", "B", "C", "D", "4" ],
+        "picture": "https://simply-delicious-food.com/wp-content/uploads/2019/02/steak-and-twice-baked-potatoes-4-3.jpg"
 
 },
 
     {  
-        "name": "curry chicken",
+        "name": "Curry Chicken",
         "type": "lunch",
-        "ingredients": ["chicken", "curry", "love"]
+        "ingredients": ["chicken", "curry", "love"],
+        "picture": "https://cook.fnr.sndimg.com/content/dam/images/cook/fullset/2016/12/29/0/CCTIA301H_Chicken-Curry-and-Potatoes_s4x3.jpg.rend.hgtvcom.826.620.suffix/1483043433875.jpeg"
 
 }
 

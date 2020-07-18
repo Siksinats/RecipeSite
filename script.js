@@ -31,13 +31,13 @@ function getMeal() {
         if (meals.readyState === 4 && meals.status == 200) {
             let mealInfo = JSON.parse(meals.responseText);
             let mealInput = document.querySelector("input").value;
-            let ingredientsHTML = '<ul class="ingredients">';
-            let mealList = '<ul class="meals">';
+            let ingredientsHTML = '<div class="ingredients">';
+            let mealList = '';
 
             /* Search for meal by name */
                 for(let i=0; i<mealInfo.length; i++) {
 
-                    if(mealInfo[i].name === mealInput.toLowerCase()) {
+                    if(mealInfo[i].name.toLocaleLowerCase() === mealInput.toLowerCase()) {
                         let desiredMealIngredients = mealInfo[i].ingredients;
 
                         for(let i=0; i<desiredMealIngredients.length; i++) {
@@ -51,22 +51,29 @@ function getMeal() {
                 /* Search for meal by type */
                 for(let i=0; i<mealInfo.length; i++) {
 
-                    if(mealInfo[i].type === mealInput.toLocaleLowerCase()) {
-                        mealList += `<li class="meal-name">${mealInfo[i].name}</li>`;
+                    if(mealInfo[i].type.toLocaleLowerCase() === mealInput.toLocaleLowerCase()) {
+                        mealList += `<div class="grow fade-in shadow card m-2 mb-3" style="width: 18rem;">
+                        <img src="${listInfo[i].picture}" class="card-img-top card-img-height img-thumbnail " alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">${listInfo[i].name}</h5>
+                          <p class="card-text">${listInfo[i].description}</p>
+                        </div>
+                      </div>`;
                         document.querySelector('.full-list').style.display = 'none';
                         
                     } 
                 }
 
-                /*--Write HTML and close <ul>--*/
-                document.querySelector('.meal_list').innerHTML = mealList + '</ul>';
-                document.querySelector('.ingredient_list').innerHTML = ingredientsHTML + '</ul>';
+                /*--Write HTML and close <div>--*/
+                document.querySelector('.meal_list').innerHTML = mealList;
+                document.querySelector('.ingredient_list').innerHTML = ingredientsHTML + '</div>';
 
                 /*--Reset fullList display if no changes were made--*/
-                if(document.querySelector('.meal_list').innerHTML === '<ul class="meals"></ul>' &&
-                document.querySelector('.ingredient_list').innerHTML === '<ul class="ingredients"></ul>') {
+                if(document.querySelector('.meal_list').innerHTML === '' &&
+                document.querySelector('.ingredient_list').innerHTML === '<div class="ingredients"></div>') {
                         
-                    document.querySelector('.full-list').style.display = 'initial';
+                    document.querySelector('.full-list').style.display = 'flex';
+                    
                 }    
         }     
     };
@@ -83,7 +90,14 @@ function fullDisplay() {
             listInfo = JSON.parse(fullList.responseText);
             
             for(let i=0; i<listInfo.length; i++) {
-                listDisplay += `<h3>${listInfo[i].name}</h3> `
+                listDisplay += `<div class="grow fade-in shadow card m-2 mb-3" style="width: 18rem;">
+                <img src="${listInfo[i].picture}" class="card-img-top card-img-height img-thumbnail " alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">${listInfo[i].name}</h5>
+                  <p class="card-text">${listInfo[i].description}</p>
+                </div>
+              </div>
+              `
             }
             document.querySelector('.full-list').innerHTML = listDisplay
         }
