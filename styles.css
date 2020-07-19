@@ -8,10 +8,6 @@
     flex-wrap: wrap;
 }
 
-.full-list {
-    margin: 1rem;
-}
-
 .fade-in {
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
@@ -44,9 +40,13 @@
     100% {opacity:1;}
     }
 
-    .grow { 
-        transition: all .2s ease-in-out; 
-        }
-    .grow:hover { 
-        transform: scale(1.1); 
-        }
+
+.grow { 
+    transition: all .2s ease-in-out; 
+     }
+.grow:hover { 
+    transform: scale(1.1); 
+    }
+#mealCard:hover {
+    cursor: pointer;
+}
