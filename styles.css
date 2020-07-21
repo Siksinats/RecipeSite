@@ -47,6 +47,6 @@
 .grow:hover { 
     transform: scale(1.1); 
     }
-#mealCard:hover {
+.mealCard:hover {
     cursor: pointer;
 }
