@@ -6,20 +6,15 @@ if (document.readyState == 'loading') {
 
 function ready() {
     /*--Display the entire recipe list at start--*/
-    
     fullDisplay();
-    
-
 
     /*--Test the value of the box by btn--*/
-   // var mealBtn = document.querySelector("#getMealBtn")
+    // var mealBtn = document.querySelector("#getMealBtn")
     //mealBtn.addEventListener("click", getMeal) 
     
     /*--Test the value of the box by typing--*/
     var mealInp = document.querySelector('#description-input');
     mealInp.addEventListener("keydown", getMeal)
-
-    
 }
 
 function getMeal() { 
@@ -83,7 +78,7 @@ function fullDisplay() {
             for(let i=0; i<listInfo.length; i++) {
                 let recipeBtn = document.getElementsByClassName('mealCard');
                 recipeBtn[i].addEventListener('click', function() {
-                    recipeModal(listInfo[i].name);
+                    recipeModal(listInfo[i].name, listInfo[i].ingredients);
                 })
             }
             
@@ -144,7 +139,7 @@ function sort(list, input, filter, listType) {
                 recipeBtn = recipeBtn.children
     
                 recipeBtn[i].addEventListener('click', function() {
-                    recipeModal(updatedMealList[i].name);
+                    recipeModal(updatedMealList[i].name, updatedMealList[i].ingredients);
                 })
             }
             
@@ -153,13 +148,22 @@ function sort(list, input, filter, listType) {
  
 }
 
-function recipeModal(name) {
+function recipeModal(name, ingredients) {
+    console.log(ingredients)
+    let ingredientList = '';
+    for(let i=0; i<ingredients.length; i++) {
+        ingredientList += `<li>${ingredients[i]}</li>`
+    }
+
     let modalHTML = `
     <div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="loginModalLabel">${name}</h5>
+          <ul>
+            ${ingredientList}
+          </ul>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

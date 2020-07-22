@@ -2,7 +2,10 @@
     { 
         "name": ["Swedish Meatballs"],
         "type": ["dinner"],
-        "ingredients": ["1", "2", "3", "4", "love"],
+        "ingredients": ["Ground Beef", "Panko Bread Crumbs", "Parsley",
+             "Allspice", "Nutmeg", "Onion", "Garlic Powder", "Pepper",
+             "Salt", "Egg", "Olive Oil", "Butter", "Flour",  "Beef Broth",
+             "Heavy Cream", "Worcestershire Sauce", "Dijon Mustard"],
         "picture": "https://www.thecookierookie.com/wp-content/uploads/2017/08/swedish-meatballs-1-of-11-500x500.jpg",
         "description" : "Swedish meatballs made with ground beef and pork are gently spiced, baked, and served with brown sour cream gravy in this old family favorite. "
     },
