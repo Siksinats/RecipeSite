@@ -1,3 +1,20 @@
+header{ 
+    width: 100%;
+}
+body {
+}
+
+.navbar {
+    background-color: #5995ED!important;
+}
+
+.search-nav {
+  width: 100%;
+}
+.recipe-list a {
+    text-decoration: none;
+    color: #2c363f;
+}
 .card-img-height {
     height: 250px;
 }
@@ -46,7 +63,30 @@
      }
 .grow:hover { 
     transform: scale(1.1); 
-    }
+}
+
+.mealCard { 
+    background-color: #f2f5ea;
+
+}
 .mealCard:hover {
     cursor: pointer;
+}
+
+.modal-list {
+    margin: 1rem;
+    border-bottom: grey;
+}
+
+.modal-ingredient {
+    font-weight: bold;
+    color: hotpink;
+}
+
+.instructions-heading {
+    margin-left: 1rem;
+}
+
+.button {
+    background-color: #4A8FE7!important;
 }

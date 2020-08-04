@@ -52,7 +52,6 @@ function ready() {
 
 function loadRecipes() {
     loadData("data.json");
-    
 }
 
 function loadData(jsonFile) {
@@ -65,6 +64,7 @@ function loadData(jsonFile) {
             storeRecipesLocally(data);
             populateRecipeCards(recipes);
             postRecipeCards();
+            cardListener(recipes);
         }
     }
 }
@@ -90,8 +90,8 @@ function populateRecipeCards(list) {
 
 function postRecipeCards() {
     document.querySelector('.recipe-list').innerHTML = ''
-    recipeCard.forEach(function (item) {
-        document.querySelector('.recipe-list').innerHTML += item;
+    recipeCard.forEach(function (e) {
+        document.querySelector('.recipe-list').innerHTML += e;
     })
 }
 
@@ -295,17 +295,24 @@ function cardListener(list) {
     let mealCard = document.querySelectorAll(".mealCard")
     for(let i=0; i<mealCard.length; i++) {
         mealCard[i].addEventListener("click", function() {
+            console.log(list[i])
             recipeModal(list[i])
         })
     }
 }
 
 function recipeModal(recipe) {
-    console.log(recipe.ingredients)
-    let ingredientArray = recipe.ingredients
+    let ingredientArray = recipe.ingredients;
     let ingredientList = '';
+    let instructionArray = recipe.instructions;
+    let instructionList = '';
+    name = recipe.name
     for(let i=0; i<ingredientArray.length; i++) {
-        ingredientList += `<li>${ingredientArray[i]}</li>`
+        ingredientList += `<input type="checkbox" id="ingredient${i+1}" name="ingredient${i+1}" value="${recipe.ingredients[i]}">
+        <label for="ingredient${i+1}">${recipe.measurements[i]} <span class="modal-ingredient">${recipe.ingredients[i]}</span></label><br>`
+    }
+    for(let i=0; i<instructionArray.length; i++) {
+        instructionList += `<li>${instructionArray[i]}</li>`
     }
 
     let modalHTML = `
@@ -313,14 +320,16 @@ function recipeModal(recipe) {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">${name}</h5>
-          <ul>
+          <h3 class="text-center" id="loginModalLabel">${name}</h3>
+        </div>
+          <div class="modal-list">
             ${ingredientList}
-          </ul>
+          </div>
+          <h5 class="instructions-heading">Instructions</h5>
+          <ol>${instructionList}</ol>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
       </div>
     </div>
   </div>`

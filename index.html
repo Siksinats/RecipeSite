@@ -62,38 +62,58 @@
   </div>
 
   <!--Recipe Modal-->
-  
-  <!--/Recipe Modal-->
   <div class="recipeModal"></div>
+  <!--/Recipe Modal-->
 
+  <nav class="search-nav">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Search</a>
+      <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Filter</a>
+      <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-hide" role="tab" aria-controls="nav-profile" aria-selected="false">Hide</a>
+    </div>
+  </nav>
 
     <body>
-      <input type="text" id="name-input" placeholder="Dish Name"> 
-        <button type="button" id="nameBtn">Get Dish</button>
-        <div>
-          <button type="button" id="ingredientAddBtn">Add</button>
-          <button type="button" id="ingredientRemoveBtn">Remove</button>
-          <label for="and">
-            <input type="radio" id="and" name="and/or" checked>
-            And
-          </label>
-          <label for="or">
-            <input type="radio" id="or" name="and/or">
-            Or
+
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <input type="text" id="name-input" placeholder="Dish Name"> 
+          <button class="btn btn-outline-primary" type="button" id="nameBtn">Get Dish</button>
+        </div>
+
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <div>
+            <button class="btn btn-outline-primary" type="button" id="ingredientAddBtn">Add</button>
+            <button class="btn btn-outline-primary" type="button" id="ingredientRemoveBtn">Remove</button>
+            <label for="and">
+              <input type="radio" id="and" name="and/or" checked>
+              And
             </label>
+            <label for="or">
+              <input type="radio" id="or" name="and/or">
+              Or
+              </label>
+          </div>
+          <div class="ingredient-input-list">
+            <div class="ingredient-input-div"><input type="text" class="ingredient-input" placeholder="What ingredients do you have"></div> 
+          </div>
+          
+          <input type="checkbox" class="mealCheckbox" id="breakfastCheckbox" name="breakfast">Breakfast</button>
+          <br>
+          <input type="checkbox" class="mealCheckbox" id="lunchCheckbox" name="lunch">Lunch</button>
+          <br>
+          <input type="checkbox" class="mealCheckbox" id="dinnerCheckbox" name="dinner">Dinner</button>
+          <br>
+          <div class="ingredient-submit"><button type="button" id="ingredientBtn">Get Dish</button></div>
+          <button type="button" id="resetBtn">Reset</button>
         </div>
-        <div class="ingredient-input-list">
-          <div class="ingredient-input-div"><input type="text" class="ingredient-input" placeholder="What ingredients do you have"></div> 
-        </div>
+
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+      </div>
+
+
+      
         
-        <input type="checkbox" class="mealCheckbox" id="breakfastCheckbox" name="breakfast">Breakfast</button>
-        <br>
-        <input type="checkbox" class="mealCheckbox" id="lunchCheckbox" name="lunch">Lunch</button>
-        <br>
-        <input type="checkbox" class="mealCheckbox" id="dinnerCheckbox" name="dinner">Dinner</button>
-        <br>
-        <div class="ingredient-submit"><button type="button" id="ingredientBtn">Get Dish</button></div>
-        <button type="button" id="resetBtn">Reset</button>
 
       <div class="m-3">
         <div class="recipe-list flex-container fade-in"></div>

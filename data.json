@@ -6,32 +6,44 @@
              "Allspice", "Nutmeg", "Onion", "Garlic Powder", "Pepper",
              "Salt", "Egg", "Olive Oil", "Butter", "Flour",  "Beef Broth",
              "Heavy Cream", "Worcestershire Sauce", "Dijon Mustard"],
+        "measurements": ["1lb","1/4 cup", "1tbs", "1/4 tsp", "1/4 tsp", "1/4 cup", 
+             "1/2 tsp", "1/8 tsp", "1/2 tsp", "1", "1 tbsp", "5 tbsp", "3 tbsp",
+             "2 cup", "1 cup", "1 tbsp", "1 tsp"],
         "picture": "https://www.thecookierookie.com/wp-content/uploads/2017/08/swedish-meatballs-1-of-11-500x500.jpg",
-        "description" : "Swedish meatballs made with ground beef and pork are gently spiced, baked, and served with brown sour cream gravy in this old family favorite. "
+        "description" : "Swedish meatballs made with ground beef and pork are gently spiced, baked, and served with brown sour cream gravy in this old family favorite.",
+        "instructions" : [
+            "In a medium sized bowl combine ground beef, panko, parsley, allspice, nutmeg, onion, garlic powder, pepper, salt and egg. Mix until combined.",
+            "Roll into 12 large meatballs or 20 small meatballs. In a large skillet heat olive oil and 1 Tablespoon butter. Add the meatballs and cook turning continuously until brown on each side and cooked throughout. Transfer to a plate and cover with foil.",
+            "Add 4 Tablespoons butter and flour to skillet and whisk until it turns brown. Slowly stir in beef broth and heavy cream. Add worchestershire sauce and dijon mustard and bring to a simmer until sauce starts to thicken. Salt and pepper to taste.",
+            "Add the meatballs back to the skillet and simmer for another 1-2 minutes. Serve over egg noodles or rice."
+        ]
     },
 
     {
         "name": "Steak and Potatoes",
         "type": "dinner",
         "ingredients": ["steak", "salt", "pepper", "garlic powder", "olive oil", "potatoes", "salted butter", "love"],
-        "picture": "https://simply-delicious-food.com/wp-content/uploads/2019/02/steak-and-twice-baked-potatoes-4-3.jpg"
-
+        "measurements": [],
+        "picture": "https://simply-delicious-food.com/wp-content/uploads/2019/02/steak-and-twice-baked-potatoes-4-3.jpg",
+        "instructions" : []
     },
 
     {  
         "name": "Curry Chicken",
         "type": "lunch",
         "ingredients": ["chicken", "curry", "love"],
-        "picture": "https://cook.fnr.sndimg.com/content/dam/images/cook/fullset/2016/12/29/0/CCTIA301H_Chicken-Curry-and-Potatoes_s4x3.jpg.rend.hgtvcom.826.620.suffix/1483043433875.jpeg"
-
+        "measurements": [],
+        "picture": "https://cook.fnr.sndimg.com/content/dam/images/cook/fullset/2016/12/29/0/CCTIA301H_Chicken-Curry-and-Potatoes_s4x3.jpg.rend.hgtvcom.826.620.suffix/1483043433875.jpeg",
+        "instructions" : []
     },
 
     {
         "name": "Breakfast Casserole",
         "type": "breakfast",
         "ingredients": ["egg", "sausage", "milk", "biscuit", "salt"],
-        "picture": "https://amindfullmom.com/wp-content/uploads/2018/02/Sausage-Egg-Hash-Brown-Breakfast-Casserole.jpg"
-
+        "measurements": [],
+        "picture": "https://amindfullmom.com/wp-content/uploads/2018/02/Sausage-Egg-Hash-Brown-Breakfast-Casserole.jpg",
+        "instructions" : []
     }
 
 ]
