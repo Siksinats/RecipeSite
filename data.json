@@ -1,7 +1,7 @@
-[
+{ "recipes": [
     { 
-        "name": ["Swedish Meatballs"],
-        "type": ["dinner"],
+        "name": "Swedish Meatballs",
+        "type": "dinner",
         "ingredients": ["Ground Beef", "Panko Bread Crumbs", "Parsley",
              "Allspice", "Nutmeg", "Onion", "Garlic Powder", "Pepper",
              "Salt", "Egg", "Olive Oil", "Butter", "Flour",  "Beef Broth",
@@ -11,27 +11,28 @@
     },
 
     {
-        "name": ["Steak and Potatoes"],
-        "type": ["dinner"],
-        "ingredients": ["A", "B", "C", "D", "4"],
+        "name": "Steak and Potatoes",
+        "type": "dinner",
+        "ingredients": ["steak", "salt", "pepper", "garlic powder", "olive oil", "potatoes", "salted butter", "love"],
         "picture": "https://simply-delicious-food.com/wp-content/uploads/2019/02/steak-and-twice-baked-potatoes-4-3.jpg"
 
     },
 
     {  
-        "name": ["Curry Chicken"],
-        "type": ["lunch"],
+        "name": "Curry Chicken",
+        "type": "lunch",
         "ingredients": ["chicken", "curry", "love"],
         "picture": "https://cook.fnr.sndimg.com/content/dam/images/cook/fullset/2016/12/29/0/CCTIA301H_Chicken-Curry-and-Potatoes_s4x3.jpg.rend.hgtvcom.826.620.suffix/1483043433875.jpeg"
 
     },
 
     {
-        "name": ["Breakfast Casserole"],
-        "type": ["breakfast"],
-        "ingredients": ["egg", "sausage", "milk", "biscuit"],
+        "name": "Breakfast Casserole",
+        "type": "breakfast",
+        "ingredients": ["egg", "sausage", "milk", "biscuit", "salt"],
         "picture": "https://amindfullmom.com/wp-content/uploads/2018/02/Sausage-Egg-Hash-Brown-Breakfast-Casserole.jpg"
 
     }
 
 ]
+}

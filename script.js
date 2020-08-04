@@ -90,7 +90,7 @@ function fullDisplay() {
 }
 
 function sort(list, input, filter, listType) {
-    let mealList = ''
+    let mealListHTML = [];
     let breakStatus = false;
     let updatedMealList= [];
 
@@ -99,11 +99,14 @@ function sort(list, input, filter, listType) {
 
     for(let i=0; i<list.length; i++) {
         for(let j=0; j<list[i][filter].length; j++) {
-            if(list[i][filter][j].toLowerCase() == input.toLowerCase().trim()) {
+            let currentItem = list[i][filter][j].toLowerCase()
+            let currentItemSplit = list[i][filter][j].toLowerCase().split(" ")
+            for(let x=0; x<currentItemSplit.length; x++){
+            if(input.match(currentItemSplit[x]) !== null && document.querySelector(listType).children !== list[i].name)  {
                 
                 updatedMealList.push(list[i])
                 
-                mealList += `<a class="" href="" data-toggle="modal" data-target="#recipeModal">
+                mealListHTML.push(`<a class="" href="" data-toggle="modal" data-target="#recipeModal">
                     <div class="mealCard fade-in grow shadow card m-2 mb-3" style="width: 18rem;">
                     <img src="${listInfo[i].picture}" class="card-img-top card-img-height img-thumbnail " alt="...">
                         <div class="card-body">
@@ -111,7 +114,7 @@ function sort(list, input, filter, listType) {
                         <p class="card-text">${listInfo[i].description}</p>
                         </div>
                     </div>
-                    </a>`;
+                    </a>`);
                     
                 document.querySelector('.full-list').style.display = 'none';                
             
@@ -121,6 +124,7 @@ function sort(list, input, filter, listType) {
                     break;
                 }
             }
+        }
         
             
         }
@@ -130,14 +134,25 @@ function sort(list, input, filter, listType) {
         
         
         if(i+1 == list.length) {
-            document.querySelector(listType).innerHTML = mealList; 
-            
-            for(let i=0; i<updatedMealList.length; i++) {
+
+            updatedMealListHTML = [...new Set(mealListHTML)]
+            console.log(updatedMealListHTML)
+            for(let i=0; i<document.querySelector(listType).querySelectorAll('.card-title').length; i++) {
+                console.log(document.querySelector(listType).querySelectorAll('.card-title')[i])
+                console.log(updatedMealList)
+                if(document.querySelector(listType).querySelectorAll('.card-title')[i] == updatedMealList[i].name) {
+                    document.querySelector(listType).querySelectorAll('.card-title')[i]
+                }
+            }
+            for(let i=0; i<updatedMealListHTML.length; i++) {
+                
+                document.querySelector(listType).innerHTML += mealListHTML[i]; 
+            }
+        
+            for(let i=0; i<updatedMealListHTML.length; i++) {
                 
                 let recipeBtn = document.querySelector(listType)
-
                 recipeBtn = recipeBtn.children
-    
                 recipeBtn[i].addEventListener('click', function() {
                     recipeModal(updatedMealList[i].name, updatedMealList[i].ingredients);
                 })

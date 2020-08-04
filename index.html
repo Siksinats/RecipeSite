@@ -5,7 +5,7 @@
         <title>Recipe Junk</title>
         <meta name="description" content="\Recipe Database">
         <meta name="Tom" content="LUL">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
         crossorigin="anonymous">
         <link rel="stylesheet" href="styles.css">
@@ -65,24 +65,43 @@
   
   <!--/Recipe Modal-->
   <div class="recipeModal"></div>
+
+
     <body>
-      <input type="text" id="description-input" placeholder="What would you like to make"> 
-        <button type="button" id="getMealBtn">Get Meal</button>
+      <input type="text" id="name-input" placeholder="Dish Name"> 
+        <button type="button" id="nameBtn">Get Dish</button>
+        <div>
+          <button type="button" id="ingredientAddBtn">Add</button>
+          <button type="button" id="ingredientRemoveBtn">Remove</button>
+          <label for="and">
+            <input type="radio" id="and" name="and/or" checked>
+            And
+          </label>
+          <label for="or">
+            <input type="radio" id="or" name="and/or">
+            Or
+            </label>
+        </div>
+        <div class="ingredient-input-list">
+          <div class="ingredient-input-div"><input type="text" class="ingredient-input" placeholder="What ingredients do you have"></div> 
+        </div>
+        
+        <input type="checkbox" class="mealCheckbox" id="breakfastCheckbox" name="breakfast">Breakfast</button>
+        <br>
+        <input type="checkbox" class="mealCheckbox" id="lunchCheckbox" name="lunch">Lunch</button>
+        <br>
+        <input type="checkbox" class="mealCheckbox" id="dinnerCheckbox" name="dinner">Dinner</button>
+        <br>
+        <div class="ingredient-submit"><button type="button" id="ingredientBtn">Get Dish</button></div>
+        <button type="button" id="resetBtn">Reset</button>
 
       <div class="m-3">
-        <div class="full-list flex-container fade-in"></div>
-        <div class="name-list flex-container fade-in"></div>
-        <div class="type-list flex-container fade-in"></div>
-        <div class="ingredient-list flex-container fade-in"></div>
+        <div class="recipe-list flex-container fade-in"></div>
       </div>
 
 
-
-
-
-
-
-        <script src="script.js"></script>
+        <!--<script src="script.js"></script>-->
+        <script src="test.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
         crossorigin="anonymous"></script>
