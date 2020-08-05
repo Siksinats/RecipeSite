@@ -9,10 +9,11 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
         crossorigin="anonymous">
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="animations.css">
     </head>
 
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="top-nav navbar navbar-expand-lg navbar-light bg-light">
           <a class="navbar-brand" href="#">Navbar</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -65,59 +66,88 @@
   <div class="recipeModal"></div>
   <!--/Recipe Modal-->
 
-  <nav class="search-nav">
-    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Search</a>
-      <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Filter</a>
-      <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-hide" role="tab" aria-controls="nav-profile" aria-selected="false">Hide</a>
-    </div>
-  </nav>
+  
 
     <body>
-
-      <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-          <input type="text" id="name-input" placeholder="Dish Name"> 
-          <button class="btn btn-outline-primary" type="button" id="nameBtn">Get Dish</button>
+      <div id="search-nav" class="sidenav">
+        <a  class="closebtn" onclick="closeSearchNav()">&times;</a>
+        <div class="flex-column-container">
+          <input class="form-control" type="text" id="name-input" placeholder="Dish Name"> 
+          <button class="btn btn-primary btn-lg" type="button" id="nameBtn">Get Dish</button>
         </div>
-
-        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-          <div>
-            <button class="btn btn-outline-primary" type="button" id="ingredientAddBtn">Add</button>
-            <button class="btn btn-outline-primary" type="button" id="ingredientRemoveBtn">Remove</button>
-            <label for="and">
-              <input type="radio" id="and" name="and/or" checked>
-              And
-            </label>
-            <label for="or">
-              <input type="radio" id="or" name="and/or">
-              Or
-              </label>
-          </div>
-          <div class="ingredient-input-list">
-            <div class="ingredient-input-div"><input type="text" class="ingredient-input" placeholder="What ingredients do you have"></div> 
-          </div>
-          
-          <input type="checkbox" class="mealCheckbox" id="breakfastCheckbox" name="breakfast">Breakfast</button>
-          <br>
-          <input type="checkbox" class="mealCheckbox" id="lunchCheckbox" name="lunch">Lunch</button>
-          <br>
-          <input type="checkbox" class="mealCheckbox" id="dinnerCheckbox" name="dinner">Dinner</button>
-          <br>
-          <div class="ingredient-submit"><button type="button" id="ingredientBtn">Get Dish</button></div>
-          <button type="button" id="resetBtn">Reset</button>
-        </div>
-
-        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
       </div>
+      
+      <div id="filter-nav" class="sidenav">
+        <a class="closebtn" onclick="closeFilterNav()">&times;</a>
+        
+          <div class="meal-filter">
+            <h3 class="blade-heading">Meal</h3>
+            <label for="breakfastCheckbox">
+              <input type="checkbox" class="mealCheckbox" id="breakfastCheckbox" name="breakfast">Breakfast
+            </label>
+            <label for="lunchCheckbox">
+              <input type="checkbox" class="mealCheckbox" id="lunchCheckbox" name="lunch">Lunch
+            </label>
+            <label for="dinnerCheckbox">
+              <input type="checkbox" class="mealCheckbox" id="dinnerCheckbox" name="dinner">Dinner
+            </label>
+          </div>
+
+          <div class="ingredient-filter">
+            <h3 class="blade-heading">Ingredients</h3>
+            
+            <div class="ingredient-input-list">
+              <div class="ingredient-input-div"><input type="text" class="form-control ingredient-input" placeholder="Ingredient"></div> 
+            </div>
+
+              <div class='ingredient-btns'>
+                <label for="and">
+                  <input type="radio" id="and" name="and/or" checked>
+                  And
+                </label>
+                <label for="or">
+                  <input type="radio" id="or" name="and/or">
+                  Or
+                  </label>
+                <button class="btn btn-outline-primary" type="button" id="ingredientAddBtn">Add</button>
+                <button class="btn btn-outline-primary" type="button" id="ingredientRemoveBtn">Remove</button>
+                </div>
+          </div>
+            
+            
+        
+        
+        <button class="btn btn-primary btn-lg" type="button" id="ingredientBtn">Get Dish</button>
+        
+      </div>
+      
+    
+      
+      <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+      <div id="main">
+          <div class="page-nav nav nav-tabs" id="nav-tab" role="tablist">
+            <a onclick="openSearchNav()" class="nav-link" id="nav-search-tab" data-toggle="tab" href="#nav-hide" role="tab" aria-controls="nav-profile" aria-selected="false">Search</a>
+            <a onclick="openFilterNav()" class="nav-link" id="nav-filter-tab" data-toggle="tab" href="#nav-hide" role="tab" aria-controls="nav-profile" aria-selected="false">Filter</a>
+            <a class="nav-link" id="resetBtn">Reset</a>
+          </div>
+       
+
+        <div class="m-3">
+          <div class="recipe-list flex-container fade-in"></div>
+        </div>
+      </div>
+
+      
+
+        
+
+      
 
 
       
         
 
-      <div class="m-3">
-        <div class="recipe-list flex-container fade-in"></div>
-      </div>
+      
 
 
         <!--<script src="script.js"></script>-->

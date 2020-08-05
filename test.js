@@ -10,6 +10,8 @@ var ingredientInputs = document.querySelectorAll('.ingredient-input')
 var ingredientRemoveBtn = document.querySelector("#ingredientRemoveBtn")
 var mealInput = document.querySelectorAll('.mealCheckbox')
 var resetBtn = document.querySelector("#resetBtn")
+var searchTab = false;
+var filterTab = false;
 
 
 if (document.readyState == 'loading') {
@@ -105,6 +107,7 @@ function nameFilter(dishName) {
         updateLocalRecipes(updatedRecipes)
         populateRecipeCards(updatedRecipes)
         postRecipeCards()
+        cardListener(updatedRecipes)
     } 
 }
 
@@ -131,7 +134,7 @@ function ingredientAndFilter() {
     }
 
     if(ingredientList.childElementCount == 0) {
-        let addInput = `<div class="ingredient-input-div"><input type="text" class="ingredient-input" placeholder="What ingredients do you have"></div>`
+        let addInput = `<div class="ingredient-input-div"><input type="text" class="form-control ingredient-input" placeholder="Ingredient"></div>`
         ingredientList.insertAdjacentHTML('beforeend', addInput)
     }
 
@@ -268,7 +271,7 @@ function updateLocalRecipes(updatedRecipeList) {
 function reset() {
     nameInput.value = '';
     document.querySelector(".ingredient-input-list").innerHTML = `
-    <div class="ingredient-input-div"><input type="text" class="ingredient-input" placeholder="What ingredients do you have"></div>`
+    <div class="ingredient-input-div"><input type="text" class="form-control ingredient-input" placeholder="Ingredient"></div>`
     ingredientInputs.forEach(function(e) {
         e.value = ''
     });
@@ -280,8 +283,11 @@ function reset() {
 
 function addIngredientInput() {
     let ingredientList = document.querySelector(".ingredient-input-list");
-    let addInput = `<div class="ingredient-input-div"><input type="text" class="ingredient-input" placeholder="What ingredients do you have"></div>`
-    ingredientList.insertAdjacentHTML('beforeend', addInput)
+    let addInput = `<div class="ingredient-input-div"><input type="text" class="form-control ingredient-input" placeholder="Ingredient"></div>`
+    if(ingredientList.childElementCount < 11) {
+        ingredientList.insertAdjacentHTML('beforeend', addInput)
+    }
+    
 }
 
 function removeIngredientInput() {
@@ -337,3 +343,43 @@ function recipeModal(recipe) {
   document.querySelector('.recipeModal').innerHTML = modalHTML
 }
 
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+function openSearchNav() {
+    if(filterTab == true){
+        closeFilterNav()
+    }
+    if(searchTab == true) {
+        closeSearchNav()
+        return;
+    }
+    document.getElementById("search-nav").style.width = "350px";
+    document.getElementById("main").style.marginLeft = "350px";
+    searchTab = true;
+  }
+  
+  /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeSearchNav() {
+    document.getElementById("search-nav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    searchTab = false
+  }
+
+  function openFilterNav() {
+    if(searchTab == true) {
+        closeSearchNav()
+    }
+    if(filterTab == true) {
+        closeFilterNav()
+        return;
+    }
+    document.getElementById("filter-nav").style.width = "350px";
+    document.getElementById("main").style.marginLeft = "350px";
+    filterTab = true;
+  }
+  
+  /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeFilterNav() {
+    document.getElementById("filter-nav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    filterTab = false;
+}
