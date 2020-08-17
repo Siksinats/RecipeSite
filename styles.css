@@ -2,7 +2,15 @@ body{
     box-sizing: border-box;
 }
 
-header{ 
+#index-body {
+    background: rgb(243,243,243);
+background: linear-gradient(172deg, rgba(243,243,243,1) 0%, rgba(236,236,236,1) 63%, rgba(223,223,223,1) 100%);
+}
+
+#yourRecipeBody {
+    background-color: #f3f3f3;
+}
+#recipe-list-header { 
     width: 100%;
     width: 100%;
     position: fixed;
@@ -10,17 +18,39 @@ header{
     left: 0px;
     z-index: 1;
 }
-
+#navbarText {
+    background-color: #5995ED;
+}
 .top-nav {
     background-color: #5995ED!important;
+    padding: 0px;
+    height: 45px;
+}
+.top-nav-padding {
+    margin: 0 auto;
+    max-width: 1250px;
+    padding: 0px;
+}
+
+.profile-image {
+    height: 25px;
+    width: auto;
+    margin-right: 5px;
 }
 
 .page-nav {
-    margin-top: 56px;
+    margin: 0 auto;
+    margin-top: 50px;
+    max-width: 1250px;
 }
 
 .search-nav {
   width: 100%;
+}
+
+.btn-varient {
+    background-color: #ee6352!important;
+
 }
 
 #filter-nav {
@@ -68,7 +98,7 @@ border-right-color: ivory;
     padding-left: 5px;
 }
 
-#ingredientAddBtn {
+#ingredientAddBtn, #ingredientRemoveBtn {
     margin-bottom: 5px;
 }
 
@@ -94,6 +124,11 @@ border-right-color: ivory;
     align-self: center;
 }
 
+
+.recipe-list {
+    margin: 0 auto;
+    max-width: 1250px;
+}
 .recipe-list a {
     text-decoration: none;
     color: #2c363f;
@@ -153,6 +188,10 @@ border-right-color: ivory;
     transform: scale(1.1); 
 }
 
+.log-in:hover {
+    transform: scale(.9)
+}
+
 .mealCard { 
     background-color: #f2f5ea;
 
@@ -168,7 +207,7 @@ border-right-color: ivory;
 
 .modal-ingredient {
     font-weight: bold;
-    color: hotpink;
+    color: #ee6352;
 }
 
 .instructions-heading {
@@ -177,4 +216,256 @@ border-right-color: ivory;
 
 .button {
     background-color: #4A8FE7!important;
+}
+
+/* Recipe Add CSS */
+
+#addMain {
+    background-color: #cadcf7;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.add-recipe-header {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    background-color: #5995ED;
+}
+
+.form-landing {
+    margin-top: 100px;
+    align-self: center;
+    width: 80%;
+    max-width: 1000px;
+    background-color: #f2f5ea;
+    color: #2c363f;
+    border-radius: 5px;
+    
+}
+
+.form-information {
+    box-sizing: border-box;
+    margin: 50px
+}
+
+#ingredient-list {
+    margin-bottom: 20px;
+}
+
+#ingredient-add-button {
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+.ingredient-btn {
+    margin-bottom: 5px;
+}
+
+.preview-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: .5rem;
+    color: grey;
+    height: 7rem;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.preview-field .picture-preview {
+    width: 100px;
+    height: 100px;
+}
+
+#instruction-add-button {
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+
+
+.instruction-btn {
+    margin-bottom: 1rem;
+}
+
+.submit-btn {
+    background-color: #ee6352;
+    font-weight: bold;
+    color: whitesmoke;
+    margin-left: calc(50% - 75px);
+    margin-top: 25px;
+    width: 150px;
+    height: 60px;
+}
+
+.container {
+    padding-left: 0px;
+}
+
+/*--Index Css--*/
+
+#your-recipe-link {
+    height: 100%;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-bottom-color: #ee6352
+}
+
+.jumbotron {
+    color: whitesmoke;
+    background-image: url("Images/indexHead.jpg");
+    background-repeat: repeat-x;
+    background-size: contain;
+    height: 500px;
+    min-width: 850px;
+    margin-bottom: 0px;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 1250px;
+}
+
+.wrapper-large {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+#cookbook-section {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    background-image: url("Images/cookBook.png");
+    background-position: left;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    height: 500px;
+}
+
+#cookbook-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    
+}
+
+
+
+#spotlight-section {
+    padding-top: 25px;
+    background-color: none;
+}
+
+#spotlight {
+    margin-top: 50px;
+}
+.spotlight-wrapper {
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: row;
+    margin: 10px auto;
+    width: 1250px;
+    padding: 2px;
+    border-color: rgba(255, 127, 80, 0);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px
+}
+
+.spotlight-wrapper:hover {
+    padding: 2px;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px
+}
+.spotlight-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px 0px 0px 10px;
+    border-right-width: 4px;
+    border-right-color: #ee6352;
+    border-right-style: ridge;
+}
+.spotlight-description {
+    width: 100%;
+    position: relative;
+    padding-top: 10px;
+    background-color: #f2f5ea;
+    border-radius: 0px 10px 10px 0px;
+}
+.spotlight-text-container {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #cadcf7;
+}
+.spotlight-description-text, .spotlight-description-title {
+    padding-left: 20px;
+    
+}
+
+.cap {
+    text-transform: capitalize;
+    display: inline;
+}
+
+.spotlight-btn-container {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+#community-section {
+    display: flex;
+    background-image: url("Images/cookingTogether.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    height: 500px;
+}
+#community-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+}
+
+#join-section {
+    display: flex;
+    height: 500px;
+    border-radius: 5px;
+}
+
+#join-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 999px) {
+    #community-text {
+        text-align: left;
+        width: 40%;
+    }
+
+    #cookbook-text {
+        text-align: right;
+        width: 40%
+    }
+}
+
+
+
+
+
+#index-footer {
+    height: 500px;
+    background-color: #252d35;
 }
