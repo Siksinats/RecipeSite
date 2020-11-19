@@ -3,8 +3,8 @@ var recipes = [];
 var updatedRecipes = [];
 var recipeCard = [];
 var selectedMeals = [];
-var nameInput = document.querySelector('#name-input')
-var nameBtn = document.querySelector("#nameBtn")
+var nameInput = document.querySelector('#nameRefine')
+var nameBtn = document.querySelector("#nameRefineBtn")
 var ingredientAddBtn = document.querySelector("#ingredientAddBtn")
 var ingredientInputs = document.querySelectorAll('.ingredient-input')
 var ingredientRemoveBtn = document.querySelector("#ingredientRemoveBtn")
@@ -27,39 +27,36 @@ function ready() {
     
 
 /*------Add event listeners------*/
+headerExpand = document.querySelector('.navbar-toggler-icon');
+headerExpand.addEventListener('click', function() {
+    changeHeaderHeight()
+})
+
+ingredientAddBtn.addEventListener("click", function(){
+    addIngredientInput()
+})
+
+ingredientRemoveBtn.addEventListener("click", function(){
+    removeIngredientInput()
+})
+
+ingredientClearBtn.addEventListener("click", function(){
+    clearIngredientInput()
+})
+
+filterRefineBtn.addEventListener("click", function() {
+    ingredientFilter()
+}) 
+
+resetBtn.addEventListener("click", reset)
 
     /*--Test the value of the box by btn--*/
-    nameBtn.addEventListener("click", function(){
-        nameFilter(nameInput.value)
-    }) 
-
-    ingredientAddBtn.addEventListener("click", function(){
-        addIngredientInput()
-    })
-
-    ingredientRemoveBtn.addEventListener("click", function(){
-        removeIngredientInput()
-    })
-
-    ingredientClearBtn.addEventListener("click", function(){
-        clearIngredientInput()
-    })
-
-    ingredientBtn.addEventListener("click", function() {
-        ingredientFilter()
-    })    
     
-    resetBtn.addEventListener("click", reset)
-
-    headerExpand = document.querySelector('.navbar-toggler-icon');
-    headerExpand.addEventListener('click', function() {
-    changeHeaderHeight()
-    })
-
+nameBtn.addEventListener("click", function(){
+    nameFilter(nameInput.value)
+}) 
+     
     
-    /*--Test the value of the box by typing--*/
-    //var mealInp = document.querySelector('#description-input');
-    //mealInp.addEventListener("keydown", getMeal)
 }
 
 function changeHeaderHeight() {
@@ -92,15 +89,24 @@ function storeRecipesLocally(data) {
 function populateRecipeCards(list) {
     recipeCard = [];
     list.forEach(function (item) {
-        recipeCard.push(`<a class="" href="" data-toggle="modal" data-target="#recipeModal">
-        <div class="fade-in mealCard grow shadow card m-2 mb-3" style="width: 18rem;">
-            <img src="${item.picture}" class="card-img-top card-img-height" alt="...">
-            <div class="card-body">
-            <h5 class="card-title">${item.name}</h5>
-            <p class="card-text">${item.description}</p>
-            </div>
+        recipeCard.push(`<div class="spotlight-wrapper shadow">
+        <div>
+          <img class="spotlight-picture" src="${item.picture}"" alt="">
         </div>
-      </a> `)
+
+        <div class="spotlight-description">
+          <div class="spotlight-text-container">
+          <h3 class="spotlight-description-title">${item.name}<p class="lead ml-3 cap">${item.type}</p></h3>
+          <p class="spotlight-description-text">"${item.description}"</p>
+          </div>
+
+          <div class="spotlight-btn-container">
+            <button class="spotlight-btn btn btn-primary" type="button">Recipe</button>
+            <button class="spotlight-btn btn btn-primary" type="button">Add</button>
+          </div>
+        </div>
+
+      </div>`)
     }) 
 }
 
@@ -137,7 +143,7 @@ function ingredientFilter() {
 function ingredientAndFilter() {
     let ingredientInputs = document.querySelectorAll('.ingredient-input')
     let ingredientInputDiv = document.querySelectorAll('.ingredient-input-div')
-    let ingredientList = document.querySelector(".ingredient-input-list");
+    let ingredientList = document.querySelector(".ingredient-refine-list");
     let updatedRecipesOR = [];
     let updatedRecipesAnd = [];
 
@@ -180,7 +186,6 @@ function ingredientAndFilter() {
                     }
                 }
             }) 
-            console.log(updatedRecipesOR.length)
             updatedRecipesAnd = updatedRecipesOR.filter(function(x) {
                 for(let j=0; j<x.ingredients.length; j++) {
                     if(x.ingredients[j].toLowerCase() == e.value.toLowerCase()){
@@ -284,7 +289,7 @@ function updateLocalRecipes(updatedRecipeList) {
 
 function reset() {
     nameInput.value = '';
-    document.querySelector(".ingredient-input-list").innerHTML = `
+    document.querySelector(".ingredient-refine-list").innerHTML = `
     <div class="ingredient-input-div"><input type="text" class="form-control ingredient-input" placeholder="Ingredient"></div>`
     ingredientInputs.forEach(function(e) {
         e.value = ''
@@ -296,23 +301,23 @@ function reset() {
 }
 
 function addIngredientInput() {
-    let ingredientList = document.querySelector(".ingredient-input-list");
+    let ingredientList = document.querySelector(".ingredient-refine-list");
     let addInput = `<div class="ingredient-input-div"><input type="text" class="form-control ingredient-input" placeholder="Ingredient"></div>`
-    if(ingredientList.childElementCount < 11) {
+    if(ingredientList.childElementCount < 5) {
         ingredientList.insertAdjacentHTML('beforeend', addInput)
     }
     
 }
 
 function removeIngredientInput() {
-    let ingredientList = document.querySelector(".ingredient-input-list")
+    let ingredientList = document.querySelector(".ingredient-refine-list")
     if(ingredientList.childElementCount > 1) {
         ingredientList.removeChild(ingredientList.lastElementChild);
     }
 }
 
 function clearIngredientInput() {
-    let ingredientList = document.querySelector(".ingredient-input-list");
+    let ingredientList = document.querySelector(".ingredient-refine-list");
     let initialList = `<div class="ingredient-input-div"><input type="text" class="form-control ingredient-input" placeholder="Ingredient"></div>`
     let checkBox = document.querySelectorAll(".mealCheckbox")
     ingredientList.innerHTML = initialList;
@@ -361,7 +366,6 @@ function recipeModal(recipe) {
         videoHTML = `<iframe src="${videoLink}" title="description">`
     }
 
-    console.log(videoLink)
     let modalHTML = `
     <div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -374,8 +378,8 @@ function recipeModal(recipe) {
           </div>
           <h5 class="instructions-heading">Instructions</h5>
           <ol>${instructionList}</ol>
-          <h3 class="mb-3">Video Link</h3>
-          <div id="video-link">
+          <div>
+            <h3>Video Link</h3>
                 ${videoHTML}
           </div>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -397,15 +401,15 @@ function openSearchNav() {
         closeSearchNav()
         return;
     }
-    document.getElementById("search-nav").style.width = "350px";
-    document.getElementById("main").style.marginLeft = "350px";
+    document.getElementById("search-refine").style.height = "100px";
+    document.getElementById("ourRecipeMain").style.marginTop = "0px";
     searchTab = true;
   }
   
   /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function closeSearchNav() {
-    document.getElementById("search-nav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
+    document.getElementById("search-refine").style.height = "0";
+    document.getElementById("ourRecipeMain").style.marginTop = "0";
     searchTab = false
   }
 
@@ -417,15 +421,16 @@ function closeSearchNav() {
         closeFilterNav()
         return;
     }
-    document.getElementById("filter-nav").style.width = "350px";
-    document.getElementById("main").style.marginLeft = "350px";
+    document.getElementById("filter-refine").style.height = "250px";
+    document.getElementById("filter-refine").style.margin = "2rem auto";
+    document.getElementById("ourRecipeMain").style.marginTop = "0px";
     filterTab = true;
   }
   
   /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function closeFilterNav() {
-    document.getElementById("filter-nav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
+    document.getElementById("filter-refine").style.height = "0";
+    document.getElementById("ourRecipeMain").style.marginTop = "0";
     filterTab = false;
 }
 

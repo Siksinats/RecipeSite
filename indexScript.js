@@ -10,6 +10,17 @@ function ready() {
 
 loadRecipes()
 
+
+headerExpand = document.querySelector('.navbar-toggler-icon');
+headerExpand.addEventListener('click', function() {
+    changeHeaderHeight()
+    })
+
+
+}
+
+function changeHeaderHeight() {
+    document.getElementsByClassName("top-nav")[0].style.height = "auto"
 }
 
 function loadRecipes() {
@@ -39,7 +50,7 @@ function populateRecipeCards(list) {
     console.log(list[0].type)
     recipeCard = [];
     list.forEach(function (item) {
-        recipeCard.push(`<div class= "spotlight-wrapper shadow">
+        recipeCard.push(`<div class="spotlight-wrapper-index shadow">
         <div>
           <img class="spotlight-picture" src="${item.picture}"" alt="">
         </div>
